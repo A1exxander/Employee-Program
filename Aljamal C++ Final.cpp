@@ -233,7 +233,7 @@ int main(){
 
 	}
 
-/* Some questions I have : Make a struct and inherit it into our employee class for private member vars? Don't think I should do this
+/* Some questions I have as I just started using classes : Make a struct and inherit it into our employee class for private member vars? Don't think I should do this
 Should my setters which are only used by my constructor be private? I think it should, and if I was populating the class instance from another function outside, it would need to be set to public
 Forloop or constructor to populate class instances? Should I call each setter function or call one function that calls all the other functions? I think its better to just call setter functions 1 by 1 with an external function thatll use setters in public
 Make an output class? I probably shouldnt have an output class; Classes represent certain things and have member methods to help represent said objects; functions are used to do certain things. For outputs i thinks its better to make functions into a namespace in their own file
