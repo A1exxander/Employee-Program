@@ -92,7 +92,7 @@ class Employee {
 
 public:
 
-	static int s_Value;
+	static int s_employeeNumber;
 
 	Employee() {
 
@@ -145,7 +145,7 @@ void consoleOutput(const std::array<Employee, 5>& employees);
 void fileOutput(const std::array<Employee, 5>& employees);
 // Better to place Employee class and file related functions in their own .h & .cpp file, but I cant for this project
 
-int Employee::s_Value = { 1 };
+int Employee::s_employeeNumber = { 1 };
 
 int main(){
 
@@ -233,8 +233,8 @@ int main(){
 
 	}
 
-/* Some questions I have : Make a struct and inherit it into our employee class for private member vars? Dont think I should do this
+/* Some questions I have : Make a struct and inherit it into our employee class for private member vars? Don't think I should do this
 Should my setters which are only used by my constructor be private? I think it should, and if I was populating the class instance from another function outside, it would need to be set to public
-Forloop or constructor to populate class instances? Should I call each setter function or call one function that calls all the other functions? I think its better to just call setter functions 1 by 1 
+Forloop or constructor to populate class instances? Should I call each setter function or call one function that calls all the other functions? I think its better to just call setter functions 1 by 1 with an external function thatll use setters in public
 Make an output class? I probably shouldnt have an output class; Classes represent certain things and have member methods to help represent said objects; functions are used to do certain things. For outputs i thinks its better to make functions into a namespace in their own file
  */
