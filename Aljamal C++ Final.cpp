@@ -145,7 +145,7 @@ void consoleOutput(const std::array<Employee, 5>& employees);
 void fileOutput(const std::array<Employee, 5>& employees);
 // Better to place Employee class and file related functions in their own .h & .cpp file, but I cant for this project
 
-int Employee::s_employeeNumber = { 1 };
+int Employee::s_employeeNumber = { 1 }; // Employee count
 
 int main(){
 
