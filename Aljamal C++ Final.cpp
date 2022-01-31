@@ -6,9 +6,9 @@
 
 class Employee {
 
-	std::string m_firstName{ " " };
-	char m_MI{ ' ' };
-	std::string m_lastName{ " " };
+	std::string m_firstName{};
+	char m_MI{};
+	std::string m_lastName{}; // Better to pass m_lastName and m_firstName by refrences and set their value with std::getLine
 	int m_idNumber{};
 	int m_hoursWorked{};
 	double m_ratePerHour{};
@@ -94,7 +94,7 @@ public:
 
 	static int s_employeeNumber;
 
-	Employee() { // We can use initilization list in this case, but I think its better not to., use static constexpr on member vars that cannot change the same for all instances,  and IL for assigning member vars values, works on class members who are const and with function calls
+	Employee() { // We can use initilization list in this case, but I think its better not to as we are setting value with by returning data with function. Use static constexpr on member vars that cannot change the same for all instances,  and IL for assigning member vars values, works on class members who are const and with function calls
 
 		std::cout << "\nEmployee # " << s_Value << "\n";
 		m_firstName = setFirstName();
