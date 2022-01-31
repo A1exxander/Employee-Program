@@ -13,7 +13,7 @@ class Employee {
 	int m_hoursWorked{};
 	double m_ratePerHour{};
 	double m_gross{};
-	double m_tax{ 0 };
+	double m_tax{};
 	double m_net{};
 
 	// Setter functions are private since they should only be called by our constructor
@@ -94,7 +94,7 @@ public:
 
 	static int s_employeeNumber;
 
-	Employee() {
+	Employee() { // We can use initilization list in this case, but I think its better not to., use static constexpr on member vars that cannot change the same for all instances,  and IL for assigning member vars values, works on class members who are const and with function calls
 
 		std::cout << "\nEmployee # " << s_Value << "\n";
 		m_firstName = setFirstName();
@@ -145,7 +145,7 @@ void consoleOutput(const std::array<Employee, 5>& employees);
 void fileOutput(const std::array<Employee, 5>& employees);
 // Better to place Employee class and file related functions in their own .h & .cpp file, but I cant for this project
 
-int Employee::s_employeeNumber = { 1 }; // Employee count
+int Employee::s_employeeNumber = { 0 }; // Employee count
 
 int main(){
 
