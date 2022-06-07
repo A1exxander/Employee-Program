@@ -10,7 +10,7 @@ class Employee {
 	char m_MI{};
 	std::string m_lastName{}; // Better to pass m_lastName and m_firstName to a void function by refrences and set their value with std::getLine
 	int m_idNumber{};
-	int m_empNumber{};
+	int m_empNum{};
 	int m_hoursWorked{};
 	double m_ratePerHour{};
 	double m_gross{};
