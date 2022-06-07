@@ -10,6 +10,7 @@ class Employee {
 	char m_MI{};
 	std::string m_lastName{}; // Better to pass m_lastName and m_firstName to a void function by refrences and set their value with std::getLine
 	int m_idNumber{};
+	int m_empNumber{};
 	int m_hoursWorked{};
 	double m_ratePerHour{};
 	double m_gross{};
@@ -89,10 +90,16 @@ class Employee {
 	double setNet() {
 		return m_gross - m_tax;
 	}
+	
+	int genEmpNum() const{
+	
+		static int s_EmpNumber{0};
+		++s_EmpNumber;
+		return s_EmpNumber;
+		
+	}
 
 public:
-
-	static int s_employeeNumber;
 
 	Employee() { // We can use initilization list in this case, but I think its better not to as we are setting value with by returning data with function. Use static constexpr on member vars that cannot change the same for all instances,  and IL for assigning member vars values, works on class members who are const and with function calls
 
@@ -106,17 +113,17 @@ public:
 		m_gross = setGrossPay(m_hoursWorked, m_ratePerHour);
 		m_tax = calcTax(m_gross);
 		m_net = setNet();
-		++s_Value;
+		m_empNum = genEmpNum();
 
 	}
 
-	std::string getFirstName() const {
+	const std::string& getFirstName() const {
 		return m_firstName;
 	}
 	char getMI() const {
 		return m_MI;
 	}
-	std::string getLastName() const {
+	const std::string& getLastName() const {
 		return m_lastName;
 	}
 	int getIDNumber() const {
@@ -144,8 +151,6 @@ void outputMenu(const std::array<Employee, 5>& employees);
 void consoleOutput(const std::array<Employee, 5>& employees);
 void fileOutput(const std::array<Employee, 5>& employees);
 // Better to place Employee class and file related functions in their own .h & .cpp file, but I cant for this project
-
-int Employee::s_employeeNumber = { 0 }; // Employee count
 
 int main(){
 
