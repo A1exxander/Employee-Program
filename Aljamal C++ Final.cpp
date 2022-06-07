@@ -91,15 +91,17 @@ class Employee {
 		return m_gross - m_tax;
 	}
 	
-	int genEmpNum() const{
+	int genEmpNum() {
 	
-		static int s_EmpNumber{0};
-		++s_EmpNumber;
-		return s_EmpNumber;
+		++s_value;
+		return s_value;
 		
 	}
 
 public:
+
+
+        static int s_value;
 
 	Employee() { // We can use initilization list in this case, but I think its better not to as we are setting value with by returning data with function. Use static constexpr on member vars that cannot change the same for all instances,  and IL for assigning member vars values, works on class members who are const and with function calls
 
@@ -151,6 +153,8 @@ void outputMenu(const std::array<Employee, 5>& employees);
 void consoleOutput(const std::array<Employee, 5>& employees);
 void fileOutput(const std::array<Employee, 5>& employees);
 // Better to place Employee class and file related functions in their own .h & .cpp file, but I cant for this project
+
+int Employee::s_value{ 0 };
 
 int main(){
 
